@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
+const router = require("./routes/index");
+
 const cookieParser = require("cookie-parser");
 const http = require("http");
-const router = require("./routes/index");
 
 const app = express();
 const server = http.createServer(app);
@@ -18,9 +19,9 @@ const io = require("socket.io")(server, {
 
 app.use(cors(corsOption));
 app.use(express.json());
-app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(cookieParser());
 app.use(router);
 
 server.listen(4001);
