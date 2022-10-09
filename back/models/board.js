@@ -14,9 +14,10 @@ class Board extends Sequelize.Model {
           allowNull: false,
           unique: false,
         },
-      },{
+      },
+      {
         sequelize,
-        timestamps: false, // true : createdAt,updatedAt컬럼 자동추가함
+        timestamps: true, // true : createdAt,updatedAt컬럼 자동추가함
         underscored: false, // true : 카멜표기법을 스네이크표기법으로 바꿈
         modelName: "Board",
         tableName: "board",
