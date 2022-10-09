@@ -25,6 +25,8 @@
 
 ⭐️ 2일차
 - mySQL 연결
-- sequelize 
+- sequelize 연결
+- nav 제작
+- board 제작
 
 ⭐️ 3일차
