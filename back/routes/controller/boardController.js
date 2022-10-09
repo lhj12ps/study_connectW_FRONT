@@ -1,15 +1,10 @@
-const pool = require("../../db/db.js").pool;
+const pool = require("../../db/db.js");
 
 exports.viewBoard = async (req, res) => {
   try {
-    const [result] = await pool.execute();
+    const query = "INSERT";
+    const [result] = await pool.execute(query);
   } catch (e) {
-    const response = {
-      result: {
-        row: 0,
-        id: 0,
-      },
-      errno: e.errno,
-    };
+    const response = {};
   }
 };

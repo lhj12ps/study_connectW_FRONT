@@ -17,8 +17,8 @@ db.sequelize = sequelize; // 재사용을 위해서 db.sequelize에 저장
 
 db.Board = Board //db에 User객체 저장
 
-Board.init(sequelize) // User의 init 메서드 실행 -> 테이블이 모델과 연결됨
-Board.associate(db) // User의 associate 메서드 실행 -> 다른 테이블과의 관계적용
+Board.init(sequelize) // Board의 init 메서드 실행 -> 테이블이 모델과 연결됨
+Board.associate(db) // Board의 associate 메서드 실행 -> 다른 테이블과의 관계적용
 
 module.exports = db;
 
