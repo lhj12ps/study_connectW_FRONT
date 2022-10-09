@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const userRouter = require("./userRouter");
-const boardRouter = require("./boardRouter");
+const userRouter = require("./router/userRouter");
+const boardRouter = require("./router/boardRouter");
 
 router.use("/", (req, res) => {
   console.log("홈입니다");
