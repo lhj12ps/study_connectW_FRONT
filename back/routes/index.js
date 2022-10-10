@@ -8,6 +8,6 @@ router.use("/", (req, res) => {
 });
 
 router.use("/user", userRouter);
-router.use("/board", boardRouter);
+// router.use("/board", boardRouter);
 
 module.exports = router;
