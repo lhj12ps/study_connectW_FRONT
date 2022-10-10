@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "hancoco",
-    "password": "0000",
+    "username": "hyun",
+    "password": "hyun",
     "database": "study_connectWeb3",
     "host": "127.0.0.1",
     "dialect": "mysql",
