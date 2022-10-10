@@ -32,7 +32,7 @@ const Navbar = () => {
           <Link href="/login/">Login</Link>
         </div>
         <div>
-          <Link href="/">Board</Link>
+          <Link href="/board/boardList">Board</Link>
         </div>
         <div>
           <Link href="/join/">회원가입</Link>

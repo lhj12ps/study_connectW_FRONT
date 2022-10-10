@@ -17,12 +17,6 @@
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-<<<<<<< HEAD
-    "react-redux": "^8.0.4",
-    "redux-devtools-extension": "^2.13.9",
-    "redux-saga": "^1.2.1",
-=======
->>>>>>> 96ff316e09ca3df130cc32bdc25cae800ec26ba1
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
