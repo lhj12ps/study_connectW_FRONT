@@ -1,9 +1,12 @@
-import Board from "./board"
+import React, { useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function Home() {
+import BoardList from "./board/boardList"
+
+export default function Home() { 
   return (
     <div>
-      <Board />
+      <BoardList />
     </div>
   )
 }
