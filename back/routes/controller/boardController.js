@@ -2,8 +2,7 @@ const pool = require("../../db/db.js");
 
 exports.createBoard = async (req, res) => {
   try {
-    const query = "INSERT";
-    const [result] = await pool.execute();
+    console.log(req.body);
   } catch (e) {
     console.log("에러발생", e.message);
   }
