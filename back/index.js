@@ -9,7 +9,7 @@ const { sequelize } = require("./models/index");
 app.set("port", process.env.PORT || 4001);
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     console.log("db connect!");
   })
