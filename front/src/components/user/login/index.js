@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   height: 900px;
   width: 300px;
   & > ul {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -26,9 +27,16 @@ const Wrapper = styled.div`
         height: 25px;
         padding-left: 5px;
       }
-      & > button {
-        width: 48%;
-        height: 30px;
+
+      .btnBox {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        button {
+          width: 30%;
+          height: 30px;
+        }
       }
     }
   }
@@ -64,7 +72,7 @@ const Login = () => {
 
   return (
     <Wrapper>
-      <h1>로그인합시다</h1>
+      <h1 style={{ textAlign: "center" }}>로그인합시다</h1>
       {finLogin ? (
         <div style={{ marginTop: "80px" }}>
           <p>{values.userid}님 환영합니다!</p>
@@ -81,10 +89,13 @@ const Login = () => {
             <input id="userpw" onChange={handleChange} />
           </li>
           <li>
-            <button onClick={handleLogin}>로그인</button>
-            <button>
-              <a href="">google</a>
-            </button>
+            <div className="btnBox">
+              <button onClick={handleLogin}>로그인</button>
+              <button>
+                <a href="">google</a>
+              </button>
+              <button>Metamask</button>
+            </div>
           </li>
         </ul>
       )}
