@@ -50,7 +50,7 @@ class User extends Sequelize.Model {
         timestamps: true, // true : createdAt,updatedAt컬럼 자동추가함
         underscored: false, // true : 카멜표기법을 스네이크표기법으로 바꿈
         modelName: "User",
-        tableName: "user",
+        tableName: "users",
         paranoid: false, // true : deletedAt컬럼 자동추가, 로우 완전삭제가 되지않는다.
         charset: "utf8", // 한글입력설정, 이모티콘입력설정은 utf8mb4
         collate: "utf8_general_ci", // 한글입력설정, 이모티콘입력설정은 utf8mb4_general_ci

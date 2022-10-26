@@ -1,47 +1,21 @@
-import axios from "axios";
-import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const BoardItem = () => {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    setItems(list);
-  }, []);
+const BoardItem = ({ data }) => {
+  const navigate = useNavigate();
+  const dateNum = data.createdAt.split("T")[0];
 
-  const list = [
-    {
-      id: "001",
-      u_id: "ingoo7722",
-      boardText: "텍스트",
-      createAt: "2022-10-02",
-      comment: "0",
-      hit: "0",
-    },
-    {
-      id: "002",
-      u_id: "web7722",
-      boardText: "글 제목222",
-      createAt: "2022-08-11",
-      comment: "0",
-      hit: "0",
-    },
-  ];
-
-  const item = items.map((v, k) => {
-    return (
-      <tr key={k}>
-        <td>
-          'hello'
-        </td>
-        <td>{v.u_id}</td>
-        <td>{v.createAt}</td>
-        <td>{v.comment}</td>
-        <td>{v.hit}</td>
-      </tr>
-    );
-  });
-
-  return <>{item}</>;
+  const handleClick = async () => {
+    navigate(`/board/viewBoard/${data.id}`, { state: { data:data } });
+  };
+  return (
+    <tr key={data.id}>
+      <td onClick={handleClick}>{data.boardText}</td>
+      <td>{data.u_id}</td>
+      <td>{dateNum}</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  );
 };
 
 export default BoardItem;

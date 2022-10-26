@@ -5,8 +5,14 @@ import BoardItem from "./boardItem";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .tableBox {
+    width: 80%;
+  }
   table {
-    width: 500px;
+    width: 100%;
     border-collapse: collapse;
     tr,
     th,
@@ -17,10 +23,40 @@ const Wrapper = styled.div`
   }
 `;
 
+const WriteBtn = styled.div`
+  display: flex;
+  justify-content: right;
+  button {
+    margin-top: 10px;
+    padding: 5px;
+  }
+`;
+
 const BoardList = () => {
+  const [setItems, getSetItems] = useState();
+  useEffect(() => {
+    getDataHandler();
+  }, []);
+
+  const getDataHandler = async () => {
+    try {
+      const response = await axios.get(`http://localhost:4001/board/boardList`);
+      getSetItems(response.data);
+    } catch (e) {}
+  };
+
+  const checkDB = () => {
+    if (setItems !== undefined) {
+      return setItems.map((v, i) => {
+        return <BoardItem key={i} num={i} data={v} />;
+      });
+    } else {
+    }
+  };
+
   return (
     <Wrapper>
-      <div>
+      <div className="tableBox">
         <table>
           <thead>
             <tr>
@@ -31,15 +67,13 @@ const BoardList = () => {
               <th>hit</th>
             </tr>
           </thead>
-          <tbody>
-            <BoardItem />
-          </tbody>
+          <tbody>{checkDB()}</tbody>
         </table>
-        <div>
+        <WriteBtn>
           <button>
             <Link to="/board/createBoard">글작성</Link>
           </button>
-        </div>
+        </WriteBtn>
       </div>
     </Wrapper>
   );

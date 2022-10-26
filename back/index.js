@@ -1,11 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
-const path = require("path");
 const morgan = require("morgan");
 const { sequelize } = require("./models/index");
-
 app.set("port", process.env.PORT || 4001);
 
 sequelize

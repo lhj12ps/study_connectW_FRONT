@@ -1,9 +1,9 @@
-import BoardList from "../components/board/boardList"
+import BoardList from "../components/board/boardList";
 
 const Board = () => {
   return (
-    <div>
-      <BoardList />
+    <div style={{ width: "100%" }}>
+      <BoardList style={{ width: "100%" }} />
     </div>
   );
 };
