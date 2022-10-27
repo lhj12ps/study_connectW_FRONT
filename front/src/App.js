@@ -9,6 +9,7 @@ import CreateBoard from "./pages/boardCreate";
 import BoardView from "./pages/boardView";
 import { decodePayload } from "./utils/jwt";
 import { useEffect, useState } from "react";
+import useWeb3 from "./hooks/useWeb3";
 
 const BodyDiv = styled.div`
   padding-top: 100px;
@@ -19,7 +20,11 @@ const BodyDiv = styled.div`
 const App = () => {
   const [login, setLogin] = useState(false);
   const [userInfo, setUserInfo] = useState();
+  const [web3,account] = useWeb3();
 
+  // !account -> 메타마스크 연결을 해야함.
+
+  // 로그인하면 생성되는 쿠키를 확인
   useEffect(() => {
     const cookie = window.localStorage.getItem("login_Cookie");
 

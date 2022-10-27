@@ -1,16 +1,23 @@
-import React from "react";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { useDrag } from "react-dnd";
 
+const Global = createContext();
+
+//ContextAPI로 관리할 데이터 선언
+const GloblaState = {};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Global.Provider value={GloblaState}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Global.Provider>
   </React.StrictMode>
 );
 
