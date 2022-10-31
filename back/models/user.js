@@ -45,7 +45,7 @@ class User extends Sequelize.Model {
           unique: false,
         },
         account: {
-          type: Sequelize.STRING(32),
+          type: Sequelize.STRING(64),
           allowNull: false,
           unique: true,
         },

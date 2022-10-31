@@ -48,7 +48,7 @@ const Login = () => {
   const [values, setValues] = useState([]);
   const [finLogin, setFinLogin] = useState(false);
   const { state, dispatch } = useContext(GlobalStore);
-  console.log("useContext 값 확인", state);
+  // console.log("useContext 값 확인", state);
 
   const [account, setAccount] = useState(null); // 메타마스크가 사용하겠다고 선언한 계정정보
   const [web3, setWeb3] = useState(null); // web3가 메타마스크와 연결이 된 내용을 가져옴
@@ -59,7 +59,7 @@ const Login = () => {
   };
 
   const handleMetaLogin = async () => {
-    if (state.account == null) {
+    if (account == null) {
       try {
         console.log("메타마스크 로그인 안되어있음");
 
@@ -79,22 +79,33 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    try {
-      const response = await axios.post(
-        `http://localhost:4001/user/login`,
-        values
-      );
-
-      if (response.data.option.result == 1) {
-        setFinLogin(true);
-        // 백에서 생성한 jwt를 로컬스토리지에 넣기
-        window.localStorage.setItem("login_Cookie", response.data.jwt_token);
-
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
+    if (account == null) {
+      try {
+        handleMetaLogin();
+      } catch (e) {
+        console.log("로그인 전에 메타마스크 로그인 이슈");
       }
-    } catch (e) {}
+    } else {
+      try {
+        console.log('계정 있냐 : ',account)
+        const response = await axios.post(
+          `http://localhost:4001/user/login`,
+          {values,account}
+        );
+
+        if (response.data.option.result == 1) {
+          setFinLogin(true);
+          // 백에서 생성한 jwt를 로컬스토리지에 넣기
+          window.localStorage.setItem("login_Cookie", response.data.jwt_token);
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 3000);
+        }
+      } catch (e) {
+        console.log('로그인중 이슈',e.message)
+      }
+    }
   };
 
   return (

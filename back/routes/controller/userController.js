@@ -7,7 +7,8 @@ const option = {
 
 exports.join = async (req, res) => {
   try {
-    const { userid, userpw, username, nickname, gender, tell, email, address } =
+    console.log(req.body)
+    const { userid, userpw, username, nickname, gender, tell, email, address,account } =
       req.body;
     const data = await User.findOne({
       where: {
@@ -25,8 +26,9 @@ exports.join = async (req, res) => {
         gender,
         email,
         address,
+        account
       });
-      console.log("백result:", result);
+      console.log("result:", result);
       res.json(result);
     }
   } catch (e) {

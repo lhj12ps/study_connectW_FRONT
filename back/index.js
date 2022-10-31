@@ -34,7 +34,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cookieParser());
-app.use(router);
 app.use(morgan("dev"));
+
+app.use('/api',router);
+app.get("/", (req, res) => {
+  console.log("홈입니다");
+});
+
 
 server.listen(4001);
