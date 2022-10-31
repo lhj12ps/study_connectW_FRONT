@@ -28,6 +28,7 @@ yarn-error.log*
 
 README.md
 .gitkeep
+ganache.md
 
 .env
 node_modules

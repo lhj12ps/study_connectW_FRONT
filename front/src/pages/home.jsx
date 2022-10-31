@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState, } from "react";
 import Login from "../components/user/login";
-
 
 const Home = () => {
   const [login, setLogin] = useState(false);
   const [userInfo, setUserInfo] = useState();
-
 
   return (
     <div>
